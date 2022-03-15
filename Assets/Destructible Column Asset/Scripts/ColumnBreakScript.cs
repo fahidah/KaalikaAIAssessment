@@ -10,6 +10,8 @@ public class ColumnBreakScript : MonoBehaviour {
 	public GameObject explodeEffect;
 	public GameObject ObjectToDestroy;
 
+	float rotationSpeed = 10f;
+
 	//this determines whether the column will be broken or unbroken at the at runtime
 	public bool isBroken;
 
@@ -34,6 +36,12 @@ public class ColumnBreakScript : MonoBehaviour {
 		Destroy(ObjectToDestroy, .3f);
 		
 	}
+
+    public void OnMouseDrag()
+    {
+		float rotateOnYAxis = Input.GetAxis("Mouse Y") * rotationSpeed;
+		transform.Rotate(Vector3.up, rotateOnYAxis);
+    }
 
 
 
